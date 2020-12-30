@@ -1,5 +1,4 @@
 tweepy
-tqdm
 pandas
 email
 smtplib
