@@ -1,7 +1,4 @@
 import tweepy
-from io import StringIO
-from tqdm import tqdm
-import socket
 import pandas as pd
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
@@ -23,7 +20,7 @@ user_ID = "elonmusk"
 tweets = tweepy.Cursor(api.user_timeline, screen_name = user_ID, tweet_mode = 'extended').items()
 elon_tweets_dict = []
 
-for t in tqdm(tweets):
+for t in tweets:
     dummy_dict = {}
     dummy_dict['Date'] = t.created_at
     dummy_dict['Favourites'] = t.favorite_count
