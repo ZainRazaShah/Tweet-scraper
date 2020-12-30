@@ -1,5 +1,6 @@
 tweepy
 pandas
+io
 email
 smtplib
 sys
