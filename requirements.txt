@@ -1,0 +1,7 @@
+tweepy
+tqdm
+socket
+pandas
+email
+smtplib
+sys
