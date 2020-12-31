@@ -1,1 +1,1 @@
-web:python Script.py
+web: python code.py
