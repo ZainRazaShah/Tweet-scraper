@@ -67,7 +67,6 @@ threadpoolctl==2.1.0
 toml==0.10.1
 toolz==0.11.1
 tornado==6.0.4
-tqdm==4.50.0
 traitlets==5.0.4
 tweepy==1.8
 typing-extensions==3.7.4.3
