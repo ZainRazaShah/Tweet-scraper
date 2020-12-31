@@ -23,19 +23,14 @@ user_ID = "elonmusk"
 tweets = api.user_timeline(screen_name = user_ID, tweet_mode = 'extended', count = 30)
 elon_tweets_dict = []
 
-i = 0
-while i < 6:
-  for t in tweets:
-    dummy_dict = {}
-    dummy_dict['Date'] = t.created_at
-    dummy_dict['Favourites'] = t.favorite_count
-    dummy_dict['Retweets'] = t.retweet_count
-    dummy_dict['Tweet Text'] = t.full_text
-    dummy_dict['Screen Name'] = t.user.screen_name
-    elon_tweets_dict.append(dummy_dict)
-    i += 1
-
-#time.sleep(240)
+for t in tweets:
+  dummy_dict = {}
+  dummy_dict['Date'] = t.created_at
+  dummy_dict['Favourites'] = t.favorite_count
+  dummy_dict['Retweets'] = t.retweet_count
+  dummy_dict['Tweet Text'] = t.full_text
+  dummy_dict['Screen Name'] = t.user.screen_name
+  elon_tweets_dict.append(dummy_dict)
 
 print("TWO")
 elons_tweets_df = pd.DataFrame.from_dict(elon_tweets_dict)
