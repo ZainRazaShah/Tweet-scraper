@@ -20,7 +20,7 @@ authentication.set_access_token(access_token,access_token_secret)
 api = tweepy.API(authentication)
 
 user_ID = "elonmusk"
-tweets = tweepy.Cursor(api.user_timeline, screen_name = user_ID, tweet_mode = 'extended').items()
+tweets = api.user_timeline(screen_name = user_ID, tweet_mode = 'extended', count = 30)
 elon_tweets_dict = []
 
 i = 0
