@@ -8,7 +8,7 @@ from smtplib import SMTP
 import smtplib
 import sys
 
-print("HELLO THIS SCRIPT IS RUNNING")
+print("ONE")
 
 customer_API_key        = "M1CegAV9S0KtW43Bnfvaayoty"
 customer_API_secret     = "9gvPvmwJNACX8bSQKegA7syTT8qoKWLY0G2e7y8Q3Z3htbHngQ"
@@ -24,7 +24,7 @@ tweets = tweepy.Cursor(api.user_timeline, screen_name = user_ID, tweet_mode = 'e
 elon_tweets_dict = []
 
 i = 0
-while i < 11:
+while i < 6:
   for t in tweets:
     dummy_dict = {}
     dummy_dict['Date'] = t.created_at
@@ -37,6 +37,7 @@ while i < 11:
 
 #time.sleep(240)
 
+print("TWO")
 elons_tweets_df = pd.DataFrame.from_dict(elon_tweets_dict)
 
 recipients = ['zain.raza28@yahoo.com'] 
