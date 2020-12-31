@@ -36,7 +36,7 @@ recipients = ['zain.raza28@yahoo.com']
 emaillist = [elem.strip().split(',') for elem in recipients]
 msg = MIMEMultipart()
 msg['Subject'] = f"Twitter Dataset for {user_ID} is here !" 
-msg['From'] = 'Zain Raza Shah'
+msg['From'] = 'zain.raza.shah.tech@gmail.com'
 
 html = """\
 <html>
