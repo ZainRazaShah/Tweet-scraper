@@ -1,4 +1,5 @@
 import tweepy
+import time
 import pandas as pd
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
@@ -29,7 +30,7 @@ for t in tweets:
     dummy_dict['Screen Name'] = t.user.screen_name
     elon_tweets_dict.append(dummy_dict)
 
-
+time.sleep(240)
 elons_tweets_df = pd.DataFrame.from_dict(elon_tweets_dict)
 
 recipients = ['zain.raza28@yahoo.com'] 
