@@ -8,6 +8,8 @@ from smtplib import SMTP
 import smtplib
 import sys
 
+print("HELLO THIS SCRIPT IS RUNNING")
+
 customer_API_key        = "M1CegAV9S0KtW43Bnfvaayoty"
 customer_API_secret     = "9gvPvmwJNACX8bSQKegA7syTT8qoKWLY0G2e7y8Q3Z3htbHngQ"
 access_token            = "2472447743-5kEl0N82R8DK4y5POVEX7tsovKdOEXLxtVON7T0"
