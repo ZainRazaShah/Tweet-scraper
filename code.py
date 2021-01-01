@@ -108,7 +108,8 @@ def main():
 
   tweets_df = twitter_extraction(twitter_handle)
 
-  body = f"These datasets comprise of {len(tweets_dict)} records each !"
+  body = f"These datasets comprise of {len(tweets_dict)} record(s) each !"
+  
   email(tweets_df, twitter_handle, tweets_dict, recepient_email, body)
 
 #----------------------------------------------------------------------------------------
