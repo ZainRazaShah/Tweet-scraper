@@ -72,7 +72,7 @@ def email (df, twitter_id, tweets_dict, receiver_email, body):
   msg['From'] = "Tweet Scraper"
   msg['To'] = receiver_email
   
-  filename_dict = {'dataframe.csv': export_csv, 'dataframe.xlsx': export_excel}
+  filename_dict = {'dataset.csv': export_csv, 'dataset.xlsx': export_excel}
 
   intro_line = """\
   <html>
