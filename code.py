@@ -84,7 +84,7 @@ def email (df, twitter_id, tweets_dict, receiver_email, body):
   </html>
   """.format(body)
 
-  title = MIMEText(body, 'html')
+  title = MIMEText(intro_line, 'html')
   msg.attach(title)
   for filename in exporters:    
     attachment = MIMEApplication(exporters[filename](df))
