@@ -80,7 +80,6 @@ def email (df, twitter_id, tweets_dict, receiver_email, body):
     <h2 style="font-size:15px">
     {0}
     </h2>
-    <br />
     </head>
   </html>
   """.format(body)
