@@ -1,5 +1,4 @@
 import tweepy
-import urllib3
 import time
 import pandas as pd
 import requests
