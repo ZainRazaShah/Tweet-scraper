@@ -1,5 +1,5 @@
+import io
 import tweepy
-import time
 import pandas as pd
 import requests
 from email.mime.text import MIMEText
@@ -12,7 +12,6 @@ import sys
 tweets_dict = []
 
 #----------------------------------------------------------------------------------------
-
 def input_file():
   info_list = []
   f = open("zain.txt", "r")
@@ -50,29 +49,49 @@ def twitter_extraction(twitter_id):
 
 #----------------------------------------------------------------------------------------
 
-def email (df, twitter_id, tweets_dict, receiver_email):
+def export_csv(df):
+  with io.StringIO() as buffer:
+    df.to_csv(buffer)
+    return buffer.getvalue()
+
+#----------------------------------------------------------------------------------------
+
+def export_excel(df):
+  with io.BytesIO() as buffer:
+    writer = pd.ExcelWriter(buffer)
+    df.to_excel(writer)
+    writer.save()
+    return buffer.getvalue()
+
+#----------------------------------------------------------------------------------------
+
+def email (df, twitter_id, tweets_dict, receiver_email, body):
   recipient = receiver_email
   msg = MIMEMultipart()
   msg['Subject'] = f"Twitter Dataset for {twitter_id} is here !" 
   msg['From'] = "Tweet Scraper"
-  
-  heading = f"This dataset comprises of {len(tweets_dict)} records !"
-  html = """\
+  msg['To'] = receiver_email
+  exporters = {'dataframe.csv': export_csv, 'dataframe.xlsx': export_excel}
+
+  intro_line = """\
   <html>
     <head>
-    <h2 style="font-size:20px">
+    <h2 style="font-size:15px">
     {0}
     </h2>
     <br />
     </head>
-    <body>
-      {1}
-    </body>
   </html>
-  """.format(heading ,df.to_html())
+  """.format(body)
 
-  part1 = MIMEText(html, 'html')
-  msg.attach(part1)
+  title = MIMEText(intro_line, 'html')
+  msg.attach(title)
+  for filename in exporters:    
+    attachment = MIMEApplication(exporters[filename](df))
+    attachment['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
+    msg.attach(attachment)
+  
+
   server = smtplib.SMTP('smtp.gmail.com', 587)
   server.starttls()
   server.login('zain.raza.shah.tech@gmail.com', 'Pakarmy123')
@@ -89,7 +108,8 @@ def main():
 
   tweets_df = twitter_extraction(twitter_handle)
 
-  email(tweets_df, twitter_handle, tweets_dict, recepient_email)
+  body = f"These datasets comprise of {len(tweets_dict)} records each !"
+  email(tweets_df, twitter_handle, tweets_dict, recepient_email, body)
 
 #----------------------------------------------------------------------------------------
 
