@@ -71,7 +71,8 @@ def email (df, twitter_id, tweets_dict, receiver_email, body):
   msg['Subject'] = f"Twitter Dataset for {twitter_id} is here !" 
   msg['From'] = "Tweet Scraper"
   msg['To'] = receiver_email
-  exporters = {'dataframe.csv': export_csv, 'dataframe.xlsx': export_excel}
+  
+  filename_dict = {'dataframe.csv': export_csv, 'dataframe.xlsx': export_excel}
 
   intro_line = """\
   <html>
@@ -86,12 +87,12 @@ def email (df, twitter_id, tweets_dict, receiver_email, body):
 
   title = MIMEText(intro_line, 'html')
   msg.attach(title)
-  for filename in exporters:    
-    attachment = MIMEApplication(exporters[filename](df))
+
+  for filename in filename_dict:    
+    attachment = MIMEApplication(filename_dict[filename](df))
     attachment['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
     msg.attach(attachment)
   
-
   server = smtplib.SMTP('smtp.gmail.com', 587)
   server.starttls()
   server.login('zain.raza.shah.tech@gmail.com', 'Pakarmy123')
