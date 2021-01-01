@@ -20,7 +20,7 @@ authentication.set_access_token(access_token,access_token_secret)
 api = tweepy.API(authentication)
 
 user_ID = "elonmusk"
-tweets = api.user_timeline(screen_name = user_ID, tweet_mode = 'extended', count = 30)
+tweets = api.user_timeline(screen_name = user_ID, tweet_mode = 'extended', count = 100)
 elon_tweets_dict = []
 
 for t in tweets:
@@ -35,20 +35,23 @@ for t in tweets:
 print("TWO")
 elons_tweets_df = pd.DataFrame.from_dict(elon_tweets_dict)
 
-recipients = ['zain.raza28@yahoo.com'] 
-emaillist = [elem.strip().split(',') for elem in recipients]
+recipient = 'zain.raza28@yahoo.com'
 msg = MIMEMultipart()
 msg['Subject'] = f"Twitter Dataset for {user_ID} is here !" 
-msg['From'] = 'Zain Raza Shah'
+msg['From'] = 'Tweet Scraper'
 
+heading = f"This dataset comprises of 100 records !"
 html = """\
 <html>
-  <head></head>
-  <body>
+  <head>
+  <h2 style="font-size:20px">
     {0}
+  </h2></head>
+  <body>
+    {1}
   </body>
 </html>
-""".format(elons_tweets_df.to_html())
+""".format(heading, elons_tweets_df.to_html())
 
 part1 = MIMEText(html, 'html')
 msg.attach(part1)
@@ -56,5 +59,5 @@ msg.attach(part1)
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login('zain.raza.shah.tech@gmail.com', 'Pakarmy123')
-server.sendmail(msg['From'], emaillist, msg.as_string())
+server.sendmail(msg['From'], recipient, msg.as_string())
 server.close()
