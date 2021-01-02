@@ -139,10 +139,10 @@ def main():
   recepient_email = info_list[1]
   trigger_time = info_list[2]
   tweets_df = twitter_extraction(twitter_handle)
-
-  body = f"Your favourite twitter bot has scraped all this data just for you. \
+  
+  body = f"Your favourite Twitter bot has scraped all this data just for you.\
            These datasets comprise of {len(tweets_df)} record(s) each.\
-           Use them wisely \N{grinning face with smiling eyes}"
+           Use them wisely \N{slightly smiling face}"
 
   email(tweets_df, twitter_handle, recepient_email, body)
 
