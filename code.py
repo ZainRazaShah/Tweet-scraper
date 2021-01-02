@@ -25,10 +25,10 @@ def input_file():
 def twitter_extraction(twitter_id):
   try:
     tweets_dict = []
-    customer_API_key        = "M1CegAV9S0KtW43Bnfvaayoty"
-    customer_API_secret     = "9gvPvmwJNACX8bSQKegA7syTT8qoKWLY0G2e7y8Q3Z3htbHngQ"
-    access_token            = "2472447743-5kEl0N82R8DK4y5POVEX7tsovKdOEXLxtVON7T0"
-    access_token_secret     = "rapbANkPiQqcJ3SItIX02cRfeTEO2K4SC8rr27KTaRePC"
+    customer_API_key        = "qGieKxhgjQ1ipwSF2De5COjKE"
+    customer_API_secret     = "Bfl9ExAqYP0XI4kvAkbRqRjtNXdq8aogoWxocQOoBYlSPPpJhH"
+    access_token            = "2472447743-PGj450dwfQbSKG7TPu0R8j7yqrRHd6GGu11q3eN"
+    access_token_secret     = "a9wQi77o4wM7nHMuMyXza7IgHsqdU8ABmVF7ciCYK8Jhu"
 
     authentication  = tweepy.OAuthHandler(customer_API_key,customer_API_secret)
     authentication.set_access_token(access_token,access_token_secret)
