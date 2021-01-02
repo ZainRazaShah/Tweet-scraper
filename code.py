@@ -132,8 +132,6 @@ def email (df, twitter_id, receiver_email, body):
   server.sendmail(msg['From'], recipient, msg.as_string())
   server.close()
 
-
-
 #----------------------------------------------------------------------------------------
 
 def main():
