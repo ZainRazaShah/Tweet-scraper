@@ -85,10 +85,9 @@ def email (df, twitter_id, receiver_email, body):
     intro_line = """\
     <html>
       <head>
-      <h2 style="font-size:15px">
+      <p style="font-size:15px">
       {0}
-      </h2>
-      <br />
+      </p>
       </head>
     </html>
     """.format(body)
@@ -112,10 +111,9 @@ def email (df, twitter_id, receiver_email, body):
     intro_line = """\
     <html>
       <head>
-      <p style="font-size:20px">
+      <p style="font-size:15px">
       The twiiter handle that you used is incorrect.
       </p>
-      <br />
       </head>
     </html>
     """
