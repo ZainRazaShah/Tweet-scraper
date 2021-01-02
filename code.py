@@ -88,7 +88,6 @@ def email (df, twitter_id, receiver_email, body):
       <p style="font-size:20px">
       Hey there, 
       </p>
-      <br \>
       <p style="font-size:20px">
       {0}
       </p>
@@ -141,7 +140,9 @@ def main():
   trigger_time = info_list[2]
   tweets_df = twitter_extraction(twitter_handle)
 
-  body = f"Your favourite twitter bot has scraped all this data just for you \n\nThese datasets comprise of {len(tweets_df)} record(s) each.\n Use them wisely '\N{grinning face with smiling eyes}'"
+  body = f"Your favourite twitter bot has scraped all this data just for you. \
+           These datasets comprise of {len(tweets_df)} record(s) each.\
+           Use them wisely \N{grinning face with smiling eyes}"
 
   email(tweets_df, twitter_handle, recepient_email, body)
 
