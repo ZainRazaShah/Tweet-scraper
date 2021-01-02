@@ -85,7 +85,11 @@ def email (df, twitter_id, receiver_email, body):
     intro_line = """\
     <html>
       <head>
-      <p style="font-size:15px">
+      <p style="font-size:20px">
+      Hey there, 
+      </p>
+      <br \>
+      <p style="font-size:20px">
       {0}
       </p>
       </head>
@@ -111,7 +115,7 @@ def email (df, twitter_id, receiver_email, body):
     intro_line = """\
     <html>
       <head>
-      <p style="font-size:15px">
+      <p style="font-size:20px">
       The twiiter handle that you used is incorrect.
       </p>
       </head>
@@ -128,6 +132,8 @@ def email (df, twitter_id, receiver_email, body):
   server.sendmail(msg['From'], recipient, msg.as_string())
   server.close()
 
+
+
 #----------------------------------------------------------------------------------------
 
 def main():
@@ -137,7 +143,7 @@ def main():
   trigger_time = info_list[2]
   tweets_df = twitter_extraction(twitter_handle)
 
-  body = f"These datasets comprise of {len(tweets_df)} record(s) each !"
+  body = f"Your favourite twitter bot has scraped all this data just for you \n\nThese datasets comprise of {len(tweets_df)} record(s) each.\n Use them wisely '\N{grinning face with smiling eyes}'"
 
   email(tweets_df, twitter_handle, recepient_email, body)
 
@@ -154,3 +160,4 @@ while flag:
   trigger_time = main()
   print(trigger_time)
   time.sleep(int(trigger_time)*60)
+
