@@ -1,6 +1,6 @@
 # Tweet-scraper
 This script pulls twitter data using Tweepy & sends the datasets via email as attachments.
-The project is deployed on Heroku.
+The project is deployed on Heroku. (currently suspended)
 
 To use this script, you will need a Twitter Developer account of your own. You can sign up
 for one by visiting https://developer.twitter.com/en/apply-for-access
